@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Proyecto Motos</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <img src="img/loading.gif" alt="Cargando..." class="loading-gif">
+            <p id="loadingText" class="loading-text">Cargando información...</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard">
+            <header class="dashboard-header">
+                <h1>🏍️ Dashboard - Proyecto Motos</h1>
+                <div class="user-info">
+                    <span id="userInfo">Cargando...</span>
+                    <button id="logoutBtn" class="btn-secondary">Cerrar Sesión</button>
+                </div>
+            </header>
+            
+            <main class="dashboard-content">
+                <div class="welcome-card">
+                    <h2>¡Bienvenido!</h2>
+                    <p>Has iniciado sesión exitosamente en el sistema de gestión de motos.</p>
+                    <div id="userDetails" class="user-details">
+                        <!-- Los detalles del usuario se cargarán aquí -->
+                    </div>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🏍️ Gestión de Motos</h3>
+                        <p>Administra tu inventario de motocicletas</p>
+                        <button class="btn-primary" id="motosBtn">Ver Motos</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>👥 Clientes</h3>
+                        <p>Gestiona la base de datos de clientes</p>
+                        <button class="btn-primary" id="clientesBtn">Ver Clientes</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>📊 Reportes</h3>
+                        <p>Visualiza estadísticas y reportes</p>
+                        <button class="btn-primary" id="reportesBtn">Ver Reportes</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>⚙️ Configuración</h3>
+                        <p>Ajustes del sistema y perfil</p>
+                        <button class="btn-primary" id="configBtn">Configurar</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
