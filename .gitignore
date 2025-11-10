@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -137,3 +138,27 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+=======
+node_modules
+dist/*
+.env
+.DS_Store
+npm-debug.log
+yarn-error.log
+coverage/
+.vscode/
+.idea/
+logs/
+*.log
+temp/
+tmp/
+
+# Archivos de prueba y cookies temporales
+cookies.txt
+test_*.txt
+
+# Base de datos SQLite (opcional - puedes comentar si quieres versionar los datos)
+sqllite/*.db
+sqllite/*.db-shm
+sqllite/*.db-wal
+>>>>>>> a4011e7 (first commit)
