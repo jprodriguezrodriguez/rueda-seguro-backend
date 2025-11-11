@@ -5,11 +5,15 @@
 
 const User = require('./User');
 const RefreshToken = require('./RefreshToken');
+const ChecklistModel = require('./ChecklistModel');
+const ReportModel = require('./ReportModel')
 
 function createModels(db) {
     return {
         User: new User(db),
-        RefreshToken: new RefreshToken(db)
+        RefreshToken: new RefreshToken(db),
+        ChecklistModel: new ChecklistModel(db),
+        ReportModel: new ReportModel(db),
     };
 }
 

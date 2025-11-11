@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('node:path');
-const createModels = require('./src/database/models');
+const createModels = require('./src/database/models/index');
 const MigrationManager = require('./src/database/MigrationManager');
 require('dotenv').config();
 

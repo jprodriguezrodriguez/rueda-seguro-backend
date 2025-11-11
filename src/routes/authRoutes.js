@@ -107,6 +107,8 @@ router.get('/user', authenticateToken, (req, res) => {
     authController.getUser(req, res);
 });
 
+router.get('/health', (_, res) => res.json({ ok: true }));
+
 // GET /api/auth/status - Verificar estado de autenticación
 router.get('/status', authenticateToken, (req, res) => {
     authController.checkAuthStatus(req, res);
