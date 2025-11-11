@@ -79,6 +79,30 @@ class ReportModel {
         return { id, userId, typeId, isSevere, message, photoPath, latitude, longitude };
     }
 
+    async getAll() {
+        return this.db.query(
+            `SELECT
+                r.id,
+                u.username,
+                at.name AS type_name,
+                CASE WHEN r.is_severe = 1
+                    THEN 'Sí'
+                    ELSE 'No'
+                END AS is_severe,
+                r.message,
+                r.photo_path,
+                r.latitude,
+                r.longitude,
+                r.created_at
+            FROM
+                reports r
+                INNER JOIN accident_types at ON r.type_id = at.id
+                INNER JOIN users u ON r.user_id = u.id
+            ORDER BY
+                r.created_at DESC`
+        );
+    }
+
 }
 
 module.exports = ReportModel;

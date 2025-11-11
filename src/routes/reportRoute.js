@@ -76,5 +76,20 @@ module.exports = function (database) {
     }
   });
 
+  // ===============
+  // Get /api/report
+  // ===============
+  router.get('/report', async (req, res) => {
+    try {
+      const reports = await model.getAll();
+
+      res.status(200).json({ success: true, reports });
+
+    } catch (err) {
+      console.error('❌ Error obteniendo reportes:', err);
+      res.status(500).json({ error: 'No se pudieron obtener los reportes' });
+    }
+  });
+
   return router;
 };
