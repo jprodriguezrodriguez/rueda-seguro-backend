@@ -4,11 +4,11 @@
 
 Las **migraciones** son como un "control de versiones" para tu base de datos. Te permiten:
 
-- ✅ **Versionar cambios** en la estructura de la base de datos
-- ✅ **Aplicar cambios** de forma ordenada y controlada  
-- ✅ **Revertir cambios** si algo sale mal (rollback support)
-- ✅ **Sincronizar** equipos de desarrollo
-- ✅ **Deployar** cambios a producción de forma segura
+-   **Versionar cambios** en la estructura de la base de datos
+-   **Aplicar cambios** de forma ordenada y controlada  
+-   **Revertir cambios** si algo sale mal (rollback support)
+-   **Sincronizar** equipos de desarrollo
+-   **Deployar** cambios a producción de forma segura
 
 ## 🏗️ Arquitectura del Sistema
 
@@ -17,7 +17,7 @@ El sistema implementa un **MigrationManager** profesional que:
 - � **Ejecuta migraciones automáticamente** al iniciar el servidor
 - 📊 **Rastrea estado** de cada migración en tabla `schema_migrations`
 - ⚡ **Optimiza rendimiento** con modo WAL de SQLite
-- 🛡️ **Valida integridad** antes de ejecutar cambios
+-  **Valida integridad** antes de ejecutar cambios
 - 📝 **Registra logs detallados** de todas las operaciones
 
 ## �📁 Estructura del Sistema
@@ -75,11 +75,11 @@ El sistema de migraciones se ejecuta **automáticamente** al iniciar el servidor
 npm start
 # Output:
 # 🔄 Iniciando sistema de migraciones...
-# ✅ Migración 001_create_users_table.js aplicada
-# ✅ Migración 002_create_refresh_tokens_table.js aplicada
-# ✅ Migración 003_add_indexes.js aplicada
-# ✅ Migración 004_add_motorcycles_table.js aplicada
-# 🎯 4 migraciones ejecutadas correctamente
+#   Migración 001_create_users_table.js aplicada
+#   Migración 002_create_refresh_tokens_table.js aplicada
+#   Migración 003_add_indexes.js aplicada
+#   Migración 004_add_motorcycles_table.js aplicada
+#   4 migraciones ejecutadas correctamente
 # 🚀 Servidor corriendo en http://localhost:3000
 ```
 
@@ -123,10 +123,10 @@ async function up(db) {
 
         db.exec(sql, (err) => {
             if (err) {
-                console.error('❌ Error aplicando migración:', err);
+                console.error(' Error aplicando migración:', err);
                 reject(err);
             } else {
-                console.log('✅ Migración 005 aplicada exitosamente');
+                console.log('  Migración 005 aplicada exitosamente');
                 resolve();
             }
         });
@@ -144,10 +144,10 @@ async function down(db) {
 
         db.exec(sql, (err) => {
             if (err) {
-                console.error('❌ Error revirtiendo migración:', err);
+                console.error(' Error revirtiendo migración:', err);
                 reject(err);
             } else {
-                console.log('✅ Migración 005 revertida exitosamente');
+                console.log('  Migración 005 revertida exitosamente');
                 resolve();
             }
         });
@@ -170,7 +170,7 @@ npm run migrate up
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Campo phone agregado a users');
+                console.log('  Campo phone agregado a users');
                 resolve();
             }
         });
@@ -181,7 +181,7 @@ async function down(db) {
     return new Promise((resolve, reject) => {
         // SQLite no soporta DROP COLUMN fácilmente
         // En este caso, recrearías la tabla sin el campo
-        console.log('⚠️ Revertir esta migración requiere recrear la tabla');
+        console.log('  Revertir esta migración requiere recrear la tabla');
         resolve();
     });
 }
@@ -307,7 +307,7 @@ proyecto_motos_node/
 ├── 
 ├── test_api.js                  # Tests de API
 ├── cli-db.js                    # CLI para base de datos
-└── 📚 Documentación/
+└──   Documentación/
     ├── README.md                # Guía principal
     ├── API_DOCUMENTATION.md     # Documentación de API
     └── DATABASE_GUIDE.md        # Esta guía
@@ -315,25 +315,25 @@ proyecto_motos_node/
 
 ## 🏗️ Ventajas del Sistema Actual
 
-### ✅ **Arquitectura MVC Completa**
+###   **Arquitectura MVC Completa**
 - **Separación clara** de responsabilidades
 - **Controladores** con lógica de negocio
 - **Modelos** con métodos completos
 - **Rutas** organizadas y modulares
 
-### ✅ **Sistema de Migraciones Automático**
+###   **Sistema de Migraciones Automático**
 - **Ejecución automática** al iniciar servidor
 - **Versionado** de cambios de base de datos  
 - **Rollback support** para reversar cambios
 - **Logs detallados** de todas las operaciones
 
-### ✅ **Seguridad Máxima**
+###   **Seguridad Máxima**
 - **Content Security Policy** estricta
 - **Rate limiting** especializado
 - **Middleware de autenticación** robusto
 - **Validaciones** completas en todos los niveles
 
-### ✅ **Experiencia de Usuario Superior**
+###   **Experiencia de Usuario Superior**
 - **Loading UX** con GIF animado
 - **JavaScript modular** sin inline scripts  
 - **Manejo de errores** elegante
@@ -344,7 +344,7 @@ proyecto_motos_node/
 // Riesgo de perder datos en cambios
 ```
 
-### ✅ **Después (sistema de migraciones)**
+###   **Después (sistema de migraciones)**
 ```javascript
 // Cambios versionados y controlados
 // Historial completo de modificaciones  
@@ -364,10 +364,10 @@ npm run db:stats
 ```
 📊 Estadísticas de la base de datos
 
-👥 Usuarios:
+ Usuarios:
    Total: 15
 
-🔑 Refresh Tokens:
+  Refresh Tokens:
    Total: 45
    Activos: 12
    Expirados: 28
@@ -392,9 +392,9 @@ Si quieres migrar tu código actual al nuevo sistema:
 
 ### 1. **Mantener compatibilidad** (recomendado):
 El nuevo sistema mantiene todos los métodos actuales:
-- `Database.createUser()` ✅
-- `Database.getUserByEmail()` ✅  
-- `Database.createRefreshToken()` ✅
+- `Database.createUser()`  
+- `Database.getUserByEmail()`    
+- `Database.createRefreshToken()`  
 - etc.
 
 ### 2. **Solo cambiar la importación**:
@@ -409,24 +409,24 @@ const database = require('./src/database/connection');
 ```
 
 ### 3. **Beneficios inmediatos**:
-- ✅ Mejor rendimiento (WAL mode)
-- ✅ Índices optimizados
-- ✅ Estructura organizada
-- ✅ Herramientas de monitoreo
+-   Mejor rendimiento (WAL mode)
+-   Índices optimizados
+-   Estructura organizada
+-   Herramientas de monitoreo
 
 ## 🚨 Consejos Importantes
 
-### ⚠️ **En Desarrollo**
+###   **En Desarrollo**
 - Siempre crea migraciones para cambios de BD
 - Prueba migraciones antes de aplicar a producción
 - Mantén backups antes de cambios importantes
 
-### ⚠️ **En Producción**  
+###   **En Producción**  
 - NUNCA uses `npm run db:reset` 
 - Siempre testa migraciones en staging primero
 - Mantén backups regulares de la BD
 
-### ⚠️ **Buenas Prácticas**
+###   **Buenas Prácticas**
 - Una migración = un cambio específico
 - Nombres descriptivos: `add_user_avatar`, `create_orders_table`
 - Siempre implementa función `down()` para rollback

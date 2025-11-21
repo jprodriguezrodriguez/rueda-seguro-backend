@@ -94,7 +94,7 @@ class ChecklistModel {
           [q.category, q.question, q.hint]
         );
       }
-      console.log('✅ Seed de checklist insertado');
+      console.log('  Seed de checklist insertado');
     }
   }
 

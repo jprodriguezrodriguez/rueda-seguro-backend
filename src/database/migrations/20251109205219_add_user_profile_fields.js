@@ -21,7 +21,7 @@ async function up(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla ejemplo creada');
+                console.log('  Tabla ejemplo creada');
                 resolve();
             }
         });
@@ -40,7 +40,7 @@ async function down(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla ejemplo eliminada');
+                console.log('  Tabla ejemplo eliminada');
                 resolve();
             }
         });

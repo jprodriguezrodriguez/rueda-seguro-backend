@@ -105,9 +105,9 @@ class MigrationManager {
             // Marcar como ejecutada
             await this.markMigrationAsExecuted(migrationFile);
 
-            console.log(`✅ Migración completada: ${migrationFile}`);
+            console.log(`  Migración completada: ${migrationFile}`);
         } catch (error) {
-            console.error(`❌ Error en migración ${migrationFile}:`, error);
+            console.error(` Error en migración ${migrationFile}:`, error);
             throw error;
         }
     }
@@ -138,7 +138,7 @@ class MigrationManager {
             console.log('🎉 Todas las migraciones completadas exitosamente');
 
         } catch (error) {
-            console.error('❌ Error ejecutando migraciones:', error);
+            console.error(' Error ejecutando migraciones:', error);
             throw error;
         }
     }
@@ -172,7 +172,7 @@ async function up(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla ejemplo creada');
+                console.log('  Tabla ejemplo creada');
                 resolve();
             }
         });
@@ -191,7 +191,7 @@ async function down(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla ejemplo eliminada');
+                console.log('  Tabla ejemplo eliminada');
                 resolve();
             }
         });

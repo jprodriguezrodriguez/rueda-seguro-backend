@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-# rueda-seguro-backend
-API backend desarrollada en Node.js + Express + SQLite, encargada de gestionar autenticación segura, checklist diario del motociclista, reportes de incidentes con fotos y ubicación, y recordatorios inteligentes. Incluye almacenamiento local, manejo de archivos con Multer y endpoints listos para integrar con la app móvil Flutter.
-=======
-# 🏍️ Proyecto Motos Node.js - API de Autenticación y Gestión
+# Proyecto Motos Node.js - API de Autenticación y Gestión
 
-## 📋 Descripción General
+## Descripción General
 
 Este proyecto es un ejemplo completo de una API de autenticación construida con **arquitectura MVC** usando Node.js, Express y SQLite. Incluye un sistema completo de autenticación web, sistema de migración de base de datos automático y una interfaz frontend moderna con Content Security Policy estricta.
 
-## 🚀 Características Principales
+## Características Principales
 
-### 🔐 Sistema de Autenticación Completo
+### Sistema de Autenticación Completo
 - **Registro de usuarios** con validación robusta y hash de contraseñas
 - **Login seguro** con JWT (Access + Refresh tokens, 15min/7días)
 - **Middleware de autenticación** robusto para rutas protegidas
@@ -19,7 +15,7 @@ Este proyecto es un ejemplo completo de una API de autenticación construida con
 - **Rate limiting** especializado (5 intentos/15min para auth, 100/15min general)
 - **Validaciones de seguridad** completas (CORS móvil, Helmet, CSP estricta)
 
-### 🏗️ Arquitectura MVC Profesional
+### Arquitectura MVC Profesional
 - **Controladores** organizados (`src/controllers/`)
 - **Modelos** con métodos completos (`src/database/models/`)
 - **Rutas** modulares y organizadas (`src/routes/`)
@@ -27,7 +23,7 @@ Este proyecto es un ejemplo completo de una API de autenticación construida con
 - **Utilidades** centralizadas (`utils/`)
 - **Separación de responsabilidades** clara
 
-### 📊 Sistema de Base de Datos Avanzado
+### Sistema de Base de Datos Avanzado
 - **SQLite** con modo WAL para máximo rendimiento
 - **Sistema de migraciones automático** con versionado
 - **MigrationManager** profesional con rollback support
@@ -35,7 +31,7 @@ Este proyecto es un ejemplo completo de una API de autenticación construida con
 - **CLI de migración** (`npm run migrate`)
 - **Índices optimizados** para consultas rápidas
 
-### 🌐 Frontend Moderno y Seguro
+### Frontend Moderno y Seguro
 - **Content Security Policy estricta** sin inline scripts
 - **Loading UX** con GIF animado en todas las operaciones
 - **Dashboard interactivo** con JavaScript modular
@@ -44,13 +40,13 @@ Este proyecto es un ejemplo completo de una API de autenticación construida con
 - **Event listeners externos** para máxima seguridad
 - **Auto-redirección** basada en estado de autenticación
 
-### 📦 API de Ejemplo (Motos)
+### API de Ejemplo (Motos)
 - **CRUD completo** para gestión de motos
 - **Filtros avanzados** (marca, precio, disponibilidad)
 - **Estadísticas** del inventario en tiempo real
 - **Endpoints protegidos** con middleware de autenticación
 
-## 🛠️ Instalación y Configuración
+## Instalación y Configuración
 
 ### Prerrequisitos
 - Node.js (v16 o superior)
@@ -107,12 +103,12 @@ node test_api.js
 npm start
 
 # El servidor iniciará automáticamente:
-# ✅ Base de datos conectada
-# ✅ Migraciones ejecutadas automáticamente  
-# ✅ Servidor corriendo en http://localhost:3000
+#   Base de datos conectada
+#   Migraciones ejecutadas automáticamente  
+#   Servidor corriendo en http://localhost:3000
 ```
 
-## 🌐 Interfaz Web
+## Interfaz Web
 
 El proyecto incluye una interfaz web completa:
 
@@ -121,9 +117,9 @@ El proyecto incluye una interfaz web completa:
 - **http://localhost:3000/register** - Página de registro
 - **http://localhost:3000/dashboard** - Dashboard (requiere autenticación)
 
-## 📚 Documentación de la API
+##   Documentación de la API
 
-### 🔐 Endpoints de Autenticación
+###   Endpoints de Autenticación
 
 #### Registro de Usuario
 ```http
@@ -212,7 +208,7 @@ POST /api/auth/logout-all
 Authorization: Bearer jwt_token_here
 ```
 
-### 🏍️ Endpoints de Motos (Ejemplo)
+###   Endpoints de Motos (Ejemplo)
 
 #### Listar Todas las Motos
 ```http
@@ -253,14 +249,14 @@ Authorization: Bearer jwt_token_here
 GET /api/motorcycles/stats
 ```
 
-### 🏥 Endpoints de Sistema
+### Endpoints de Sistema
 
 #### Health Check
 ```http
 GET /api/health
 ```
 
-## 🎯 Uso desde Aplicaciones Móviles
+##   Uso desde Aplicaciones Móviles
 
 ### Configuración CORS
 El servidor está configurado para aceptar requests desde aplicaciones móviles:
@@ -314,7 +310,7 @@ const getMotorcycles = async () => {
 };
 ```
 
-## 🔧 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 proyecto_motos_node/
@@ -339,26 +335,26 @@ proyecto_motos_node/
 └── README.md                       # Este archivo
 ```
 
-## 🛡️ Características de Seguridad
+## Características de Seguridad
 
 ### Implementadas
-- ✅ **Hashing de contraseñas** con bcrypt (12 rounds)
-- ✅ **JWT tokens** con expiración (15 min access, 7 días refresh)
-- ✅ **Rate limiting** (15 req/min login, 100 req/min API)
-- ✅ **Validación de inputs** robusta
-- ✅ **CORS configurado** para móviles
-- ✅ **Helmet** para headers de seguridad
-- ✅ **Sanitización** de datos
-- ✅ **Manejo de errores** seguro
+-   **Hashing de contraseñas** con bcrypt (12 rounds)
+-   **JWT tokens** con expiración (15 min access, 7 días refresh)
+-   **Rate limiting** (15 req/min login, 100 req/min API)
+-   **Validación de inputs** robusta
+-   **CORS configurado** para móviles
+-   **Helmet** para headers de seguridad
+-   **Sanitización** de datos
+-   **Manejo de errores** seguro
 
 ### Recomendaciones Adicionales para Producción
-- 🔐 Usar HTTPS obligatorio
-- 🔐 Variables de entorno para secretos
-- 🔐 Logging de seguridad
-- 🔐 Backup automático de BD
-- 🔐 Monitoreo de intrusions
+-   Usar HTTPS obligatorio
+-   Variables de entorno para secretos
+-   Logging de seguridad
+-   Backup automático de BD
+-   Monitoreo de intrusions
 
-## 📱 Testing del Dashboard
+## Testing del Dashboard
 
 Una vez que el servidor esté corriendo, puedes probar todas las funcionalidades:
 
@@ -393,7 +389,7 @@ npm run db-stats
 npm run db-reset
 ```
 
-## 🤝 Contribución
+## Contribución
 
 Este es un proyecto de ejemplo, pero si quieres mejorarlo:
 
@@ -403,13 +399,13 @@ Este es un proyecto de ejemplo, pero si quieres mejorarlo:
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
 
 ---
 
-## 💡 Preguntas Frecuentes
+## Preguntas Frecuentes
 
 ### ¿Cómo cambio el puerto del servidor?
 Modifica la variable `PORT` en el archivo `.env` o cambia la línea `const PORT = process.env.PORT || 3000;` en `app.js`.
@@ -427,5 +423,4 @@ Necesita algunas configuraciones adicionales como HTTPS, variables de entorno se
 
 ---
 
-¡Gracias por usar este proyecto de ejemplo! 🏍️✨
->>>>>>> a4011e7 (first commit)
+¡Gracias por usar este proyecto de ejemplo!

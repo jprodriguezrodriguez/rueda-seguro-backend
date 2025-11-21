@@ -38,7 +38,7 @@ class DatabaseCLI {
         }
 
         if (!this.commands[command]) {
-            console.error(`❌ Comando desconocido: ${command}`);
+            console.error(` Comando desconocido: ${command}`);
             this.showHelp();
             process.exit(1);
         }
@@ -46,27 +46,27 @@ class DatabaseCLI {
         try {
             await this.commands[command](subArgs);
         } catch (error) {
-            console.error('❌ Error ejecutando comando:', error.message);
+            console.error('Error ejecutando comando:', error.message);
             process.exit(1);
         }
     }
 
     // Ejecutar migraciones
     async runMigrations() {
-        console.log('🚀 Ejecutando migraciones...\n');
+        console.log('Ejecutando migraciones...\n');
         
         const migrationManager = new MigrationManager(this.dbPath);
         await migrationManager.connect();
         await migrationManager.runPendingMigrations();
         migrationManager.close();
 
-        console.log('\n✅ Migraciones completadas');
+        console.log('\n  Migraciones completadas');
     }
 
     // Crear nueva migración
     async createMigration(args) {
         if (args.length === 0) {
-            console.error('❌ Debes proporcionar un nombre para la migración');
+            console.error(' Debes proporcionar un nombre para la migración');
             console.log('Uso: node cli-db.js create-migration nombre_de_migracion');
             return;
         }
@@ -75,7 +75,7 @@ class DatabaseCLI {
         const migrationManager = new MigrationManager(this.dbPath);
         
         const filename = migrationManager.createMigration(name);
-        console.log(`✅ Migración creada: ${filename}`);
+        console.log(`  Migración creada: ${filename}`);
     }
 
     // Mostrar estadísticas
@@ -86,10 +86,10 @@ class DatabaseCLI {
         const stats = await Database.getStats();
         Database.close();
 
-        console.log('👥 Usuarios:');
+        console.log(' Usuarios:');
         console.log(`   Total: ${stats.users.total}`);
         
-        console.log('\n🔑 Refresh Tokens:');
+        console.log('\n  Refresh Tokens:');
         console.log(`   Total: ${stats.tokens.total_tokens}`);
         console.log(`   Activos: ${stats.tokens.active_tokens}`);
         console.log(`   Expirados: ${stats.tokens.expired_tokens}`);
@@ -107,7 +107,7 @@ class DatabaseCLI {
 
     // Resetear base de datos (PELIGROSO)
     async resetDatabase() {
-        console.log('⚠️  PELIGRO: Esto eliminará TODA la base de datos');
+        console.log('   PELIGRO: Esto eliminará TODA la base de datos');
         console.log('Esta acción NO se puede deshacer.\n');
 
         // En un entorno real, aquí añadirías confirmación del usuario
@@ -124,14 +124,14 @@ class DatabaseCLI {
         rl.close();
 
         if (answer !== 'SI_ESTOY_SEGURO') {
-            console.log('🛡️  Operación cancelada. Base de datos conservada.');
+            console.log('  Operación cancelada. Base de datos conservada.');
             return;
         }
 
         // Eliminar base de datos
         if (fs.existsSync(this.dbPath)) {
             fs.unlinkSync(this.dbPath);
-            console.log('🗑️  Base de datos eliminada');
+            console.log('   Base de datos eliminada');
         }
 
         // Eliminar archivos WAL y SHM si existen
@@ -139,21 +139,21 @@ class DatabaseCLI {
             const file = this.dbPath + suffix;
             if (fs.existsSync(file)) {
                 fs.unlinkSync(file);
-                console.log(`🗑️  Archivo ${file} eliminado`);
+                console.log(`   Archivo ${file} eliminado`);
             }
         });
 
         // Recrear base de datos con migraciones
-        console.log('🔄 Recreando base de datos...');
+        console.log('Recreando base de datos...');
         await this.runMigrations();
         
-        console.log('✅ Base de datos recreada exitosamente');
+        console.log('  Base de datos recreada exitosamente');
     }
 
     // Mostrar ayuda
     showHelp() {
         console.log(`
-🗄️  CLI de Base de Datos - Proyecto Motos
+  CLI de Base de Datos - Proyecto Motos
 
 Comandos disponibles:
 
@@ -169,7 +169,7 @@ Ejemplos:
   node cli-db.js stats
   node cli-db.js reset
 
-📚 Para más información, consulta la documentación del proyecto.
+  Para más información, consulta la documentación del proyecto.
         `);
     }
 }
@@ -179,7 +179,7 @@ if (require.main === module) {
     const cli = new DatabaseCLI();
     const args = process.argv.slice(2);
     cli.run(args).catch(error => {
-        console.error('❌ Error:', error.message);
+        console.error(' Error:', error.message);
         process.exit(1);
     });
 }

@@ -14,7 +14,7 @@ async function up(db) {
                 db.run('CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)', (err) => {
                     if (err) rej(err);
                     else {
-                        console.log('✅ Índice idx_users_email creado');
+                        console.log('  Índice idx_users_email creado');
                         res();
                     }
                 });
@@ -25,7 +25,7 @@ async function up(db) {
                 db.run('CREATE INDEX IF NOT EXISTS idx_users_username ON users(username)', (err) => {
                     if (err) rej(err);
                     else {
-                        console.log('✅ Índice idx_users_username creado');
+                        console.log('  Índice idx_users_username creado');
                         res();
                     }
                 });
@@ -36,7 +36,7 @@ async function up(db) {
                 db.run('CREATE INDEX IF NOT EXISTS idx_refresh_tokens_active ON refresh_tokens(token, is_active)', (err) => {
                     if (err) rej(err);
                     else {
-                        console.log('✅ Índice idx_refresh_tokens_active creado');
+                        console.log('  Índice idx_refresh_tokens_active creado');
                         res();
                     }
                 });
@@ -47,7 +47,7 @@ async function up(db) {
                 db.run('CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user ON refresh_tokens(user_id)', (err) => {
                     if (err) rej(err);
                     else {
-                        console.log('✅ Índice idx_refresh_tokens_user creado');
+                        console.log('  Índice idx_refresh_tokens_user creado');
                         res();
                     }
                 });
@@ -79,7 +79,7 @@ async function down(db) {
                     db.run(`DROP INDEX IF EXISTS ${indexName}`, (err) => {
                         if (err) rej(err);
                         else {
-                            console.log(`✅ Índice ${indexName} eliminado`);
+                            console.log(`  Índice ${indexName} eliminado`);
                             res();
                         }
                     });

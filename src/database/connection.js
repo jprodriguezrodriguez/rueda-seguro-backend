@@ -39,10 +39,10 @@ class Database {
             // Inicializar modelos
             this.initializeModels();
 
-            console.log('✅ Base de datos configurada correctamente');
+            console.log('  Base de datos configurada correctamente');
 
         } catch (error) {
-            console.error('❌ Error conectando a la base de datos:', error);
+            console.error(' Error conectando a la base de datos:', error);
             throw error;
         }
     }
@@ -65,7 +65,7 @@ class Database {
         return new Promise((resolve, reject) => {
             this.db.run('PRAGMA journal_mode=WAL', (err) => {
                 if (err) {
-                    console.warn('⚠️ No se pudo habilitar WAL mode:', err.message);
+                    console.warn('  No se pudo habilitar WAL mode:', err.message);
                     resolve(); // No es crítico, continuar
                 } else {
                     console.log('⚡ WAL mode habilitado para mejor rendimiento');

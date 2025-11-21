@@ -24,7 +24,7 @@ async function up(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla users creada');
+                console.log('  Tabla users creada');
                 resolve();
             }
         });
@@ -42,7 +42,7 @@ async function down(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla users eliminada');
+                console.log('  Tabla users eliminada');
                 resolve();
             }
         });

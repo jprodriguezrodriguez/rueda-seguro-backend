@@ -24,7 +24,7 @@ async function up(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla refresh_tokens creada');
+                console.log('  Tabla refresh_tokens creada');
                 resolve();
             }
         });
@@ -42,7 +42,7 @@ async function down(db) {
             if (err) {
                 reject(err);
             } else {
-                console.log('✅ Tabla refresh_tokens eliminada');
+                console.log('  Tabla refresh_tokens eliminada');
                 resolve();
             }
         });

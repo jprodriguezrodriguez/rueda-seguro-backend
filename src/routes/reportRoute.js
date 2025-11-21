@@ -1,16 +1,16 @@
 const express = require('express');
 const multer = require('multer');
-const fs = require('node:fs'); // ✅ IMPORTANTE
+const fs = require('node:fs'); //   IMPORTANTE
 const path = require('node:path');
 const ReportModel = require('../database/models/ReportModel');
 
-// ✅ Ruta absoluta hacia /src/uploads
+//   Ruta absoluta hacia /src/uploads
 const uploadDir = path.join(__dirname, '..', 'uploads');
 
-// ✅ Crear carpeta si no existe (evita ENOENT)
+//   Crear carpeta si no existe (evita ENOENT)
 fs.mkdirSync(uploadDir, { recursive: true });
 
-// ✅ Configuración de almacenamiento para multer
+//   Configuración de almacenamiento para multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, uploadDir);
@@ -29,7 +29,7 @@ module.exports = function (database) {
   const router = express.Router();
   const model = new ReportModel(database);
 
-  // ✅ Inicializar tipos si no existen
+  //   Inicializar tipos si no existen
   model.initialize().catch(e => console.error('Error inicializando ReportModel:', e));
 
   // =====================
@@ -71,7 +71,7 @@ module.exports = function (database) {
       res.status(201).json({ success: true, report });
 
     } catch (err) {
-      console.error('❌ Error creando reporte:', err);
+      console.error(' Error creando reporte:', err);
       res.status(500).json({ error: 'No se pudo crear el reporte' });
     }
   });
@@ -86,7 +86,7 @@ module.exports = function (database) {
       res.status(200).json({ success: true, reports });
 
     } catch (err) {
-      console.error('❌ Error obteniendo reportes:', err);
+      console.error(' Error obteniendo reportes:', err);
       res.status(500).json({ error: 'No se pudieron obtener los reportes' });
     }
   });
